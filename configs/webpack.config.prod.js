@@ -1,22 +1,19 @@
-const path = require('path')
-const HtmlWebPackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: './src/index.js'
+    main: "./src/client/index.js"
   },
   output: {
-    path: path.join(__dirname, 'dist'),
-    publicPath: '/',
-    filename: '[name].js'
+    path: path.join(__dirname, "..", "dist"),
+    publicPath: "/",
+    filename: "[name].js"
   },
-  target: 'web',
-  devtool: '#source-map',
-  // Webpack 4 does not have a CSS minifier, although
-  // Webpack 5 will likely come with one
+  devtool: "#source-map",
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
@@ -34,16 +31,16 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: "babel-loader"
         }
       },
       {
         // Loads the javacript into html template provided.
-        // Entry point is set below in HtmlWebPackPlugin in Plugins 
+        // Entry point is set below in HtmlWebPackPlugin in Plugins
         test: /\.html$/,
         use: [
           {
-            loader: 'html-loader',
+            loader: "html-loader",
             options: { minimize: true }
           }
         ]
@@ -51,24 +48,29 @@ module.exports = {
       {
         // Loads images into CSS and Javascript files
         test: /\.jpg$/,
-        use: [{loader: 'url-loader'}]
+        use: [{ loader: "url-loader" }]
       },
       {
         // Loads CSS into a file when you import it via Javascript
         // Rules are set in MiniCssExtractPlugin
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        test: /s\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
       },
+      {
+        // Loads font files
+        test: /\.(ttf|otf)$/,
+        use: ["url-loader"]
+      }
     ]
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './src/html/index.html',
-      filename: './index.html'
+      template: "./src/client/index.html",
+      filename: "./index.html"
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css'
+      filename: "[name].css",
+      chunkFilename: "[id].css"
     })
   ]
-}
+};

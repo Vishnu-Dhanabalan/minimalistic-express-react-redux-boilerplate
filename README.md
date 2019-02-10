@@ -1,38 +1,27 @@
-# Rexpack
+### **REXPACK - React Express Webpack boilerplate**
 
-Rexpack is a minimal Express, Webpack, & React boilerplate app that serves an image, adds some styling and some basic functionality, just to show everything working at the most basic level. This project can then be used as a template for other more complex apps.
+---
 
-Stack: Node (ES6+), Express, Webpack, React, Jest, and Enzyme that has Hot Module Reloading and can be deployed to Google App Engine with a single command. It has dev and prod builds, where the prod build outputs a minified, uglified bundle where images are encoded in Base64 directly into the css file.
+This is a minimalistic boilerplate for developing desktop applications, built on top of [rexpack](https://github.com/bengrunfeld/rexpack), with some changes based on my personal project structure preferences.
 
-Rexpack can be run locally on your machine, or pushed to Google App Engine Flexible Environment.
+#### Usage
 
-## Installation
+Installation
 
+    git clone https://github.com/Vishnu-Dhanabalan/rexpack.git
+    cd rexpack
     npm install
 
-## Create a Development build
+Start developing
 
-    npm run buildDev
+    npm run dev
 
-## Create a Production build
+App will open up with hot reloading support. Configure settings using `configs/config.project.js` file
 
-    npm run buildProd
+Build the production
 
-## Run the code on a local webserver
+    npm run prod
 
-    npm start
+#### Useful packages installed
 
-Then navigate to `http://localhost:8080`
-
-## Deploy to Google App Engine Flex
-
-    npm run deploy
-
-## Run test
-
-    npm test
-
-## Generate coverage report
-
-    npm run coverage
-
+- Styled Components
