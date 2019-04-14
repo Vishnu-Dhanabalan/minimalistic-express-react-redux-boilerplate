@@ -1,15 +1,15 @@
-### **REXPACK - React Express Webpack boilerplate**
+### **Minimalistic React Redux boilerplate with Express backend**
 
 ---
 
-This is a minimalistic boilerplate for developing desktop applications, built on top of [rexpack](https://github.com/bengrunfeld/rexpack), with some changes based on my personal project structure preferences.
+This is a minimalistic yet scalable boilerplate, for developing web applications using React and Express backend server.
 
 #### Usage
 
 Installation
 
-    git clone https://github.com/Vishnu-Dhanabalan/rexpack.git
-    cd rexpack
+    git clone --depth 1 https://github.com/Vishnu-Dhanabalan/minimalistic-express-react-redux-boilerplate.git YOUR_PROJECT_FOLDER
+    cd YOUR_PROJECT_FOLDER
     npm install
 
 Start developing
