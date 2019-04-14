@@ -5,8 +5,10 @@
   "description": "React Electron Express Webpack boilerplate",
   "main": "startelectron.js",
   "scripts": {
-    "dev": "rm -rf dist && webpack --mode development --config configs/webpack.config.server.js && webpack --mode development --config configs/webpack.config.dev.js && node ./dist/server.js",
-    "prod": "rm -rf dist && webpack --mode production --config configs/webpack.config.server.js && webpack --mode production --config configs/webpack.config.prod.js"
+    "dev-build": "webpack --mode development --config configs/webpack.config.server.js && webpack --mode development --config configs/webpack.config.dev.js ",
+    "dev": "rm -rf dist && npm run dev-build && node ./dist/server.js",
+    "prod-build": "webpack --mode production --config configs/webpack.config.server.js && webpack --mode production --config configs/webpack.config.prod.js",
+    "prod": "rm -rf dist && npm run prod-build && node ./dist/server.js"
   },
   "repository": "https://github.com/Vishnu-Dhanabalan/rexpack.git",
   "keywords": [
