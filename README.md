@@ -24,4 +24,6 @@ Build the production
 
 #### Useful packages installed
 
+- Redux
+- React Router
 - Styled Components
