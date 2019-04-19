@@ -1,17 +1,8 @@
 const path = require("path");
-const webpack = require("webpack");
 const nodeExternals = require("webpack-node-externals");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
 
-module.exports = (env, argv) => {
-  // This will be edited to choose server.dev.js or server.prod.js based on the mode
-  const SERVER_PATH =
-    argv.mode === "development"
-      ? "./src/server/server.dev.js"
-      : "./src/server/server.prod.js";
-
-  const TARGET =
-    argv.mode === "development" ? "electron-renderer" : "electron-main";
+module.exports = () => {
+  const SERVER_PATH = "./src/server/server.js";
 
   return {
     entry: {
@@ -22,8 +13,8 @@ module.exports = (env, argv) => {
       publicPath: "/",
       filename: "[name].js"
     },
-    mode: argv.mode,
-    target: TARGET,
+    mode: process.env.NODE_ENV,
+    target: "node",
     node: {
       __dirname: false,
       __filename: false
@@ -32,11 +23,9 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          use: {
-            loader: "babel-loader"
-          }
+          loader: "babel-loader"
         }
       ]
     }

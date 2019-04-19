@@ -1,0 +1,15 @@
+{
+  "verbose": true,
+  "ignore": [
+    "src/*",
+    "configs/*",
+    ".gitignore",
+    ".babelrc",
+    "package.json",
+    "README.md",
+    "node_modules",
+    "dist/index.html",
+    "dist/main.js",
+    "dist/main.js.map"
+  ]
+}
