@@ -5,6 +5,9 @@ import webpack from "webpack";
 import config from "../../configs/config.project";
 
 const app = express();
+const DIST_DIR = __dirname;
+const HTML_FILE = path.join(DIST_DIR, "index.html");
+const PORT = config.server.port;
 
 // Setup webpack hot and dev middleware if the NODE_ENV is development
 if (process.env.NODE_ENV === "development") {
@@ -39,10 +42,6 @@ if (process.env.NODE_ENV === "development") {
 
 // Add all routes
 // app.use()
-
-const DIST_DIR = __dirname;
-const HTML_FILE = path.join(DIST_DIR, "index.html");
-const PORT = config.server.port;
 
 app.listen(PORT, () => {
   console.log(`App listening to ${PORT}....`);

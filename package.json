@@ -6,9 +6,9 @@
   "scripts": {
     "clean-build": "rm -rf dist",
     "dev-build": "webpack --mode development --config configs/webpack.config.server.js && webpack --mode development --config configs/webpack.config.dev.js ",
-    "dev": "npm run clean-build && cross-env NODE_ENV=development npm run dev-build && nodemon --config nodemon.json ./dist/server.js",
+    "dev": "npm run clean-build && cross-env NODE_ENV=development npm run dev-build && node ./dist/server.js",
     "prod-build": "webpack --config configs/webpack.config.server.js && webpack --mode production --config configs/webpack.config.prod.js",
-    "prod": "npm run clean-build && NODE_ENV=production npm run prod-build && node ./dist/server.js"
+    "prod": "npm run clean-build && cross-env NODE_ENV=production npm run prod-build && node ./dist/server.js"
   },
   "repository": "https://github.com/Vishnu-Dhanabalan/minimalistic-express-react-redux-boilerplate.git",
   "keywords": [
