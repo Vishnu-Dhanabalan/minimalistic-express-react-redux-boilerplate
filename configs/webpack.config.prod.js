@@ -27,12 +27,10 @@ module.exports = {
   module: {
     rules: [
       {
-        // Transpiles ES6-8 into ES5
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+        loader: "babel-loader",
+        resolve: { extensions: [".js", ".jsx"] }
       },
       {
         // Loads the javacript into html template provided.

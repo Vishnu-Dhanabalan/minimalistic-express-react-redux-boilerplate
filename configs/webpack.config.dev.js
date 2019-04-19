@@ -23,9 +23,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        loader: "babel-loader",
+        resolve: { extensions: [".js", ".jsx"] }
       },
       {
         // Loads the javacript into html template provided.
