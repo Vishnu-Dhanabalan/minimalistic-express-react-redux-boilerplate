@@ -1,18 +1,19 @@
 {
-  "name": "relexpack",
+  "name": "minimalistic-express-react-boilerplate",
   "version": "1.0.0",
   "author": "Vishnu Vardhan Dhanabalan",
-  "description": "React Electron Express Webpack boilerplate",
-  "main": "startelectron.js",
+  "description": "React Express Webpack boilerplate",
   "scripts": {
+    "clean-build": "rm -rf dist",
     "dev-build": "webpack --mode development --config configs/webpack.config.server.js && webpack --mode development --config configs/webpack.config.dev.js ",
-    "dev": "rm -rf dist && npm run dev-build && node ./dist/server.js",
-    "prod-build": "webpack --mode production --config configs/webpack.config.server.js && webpack --mode production --config configs/webpack.config.prod.js",
-    "prod": "rm -rf dist && npm run prod-build && node ./dist/server.js"
+    "dev": "npm run clean-build && cross-env NODE_ENV=development npm run dev-build && nodemon --config nodemon.json ./dist/server.js",
+    "prod-build": "webpack --config configs/webpack.config.server.js && webpack --mode production --config configs/webpack.config.prod.js",
+    "prod": "npm run clean-build && NODE_ENV=production npm run prod-build && node ./dist/server.js"
   },
-  "repository": "https://github.com/Vishnu-Dhanabalan/rexpack.git",
+  "repository": "https://github.com/Vishnu-Dhanabalan/minimalistic-express-react-redux-boilerplate.git",
   "keywords": [
     "react",
+    "redux",
     "express",
     "webpack",
     "boilerplate"
@@ -32,14 +33,14 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.0",
-    "concurrently": "^4.1.0",
+    "chokidar": "^2.1.5",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "file-loader": "^3.0.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.5.0",
-    "nodemon": "^1.18.9",
+    "nodemon": "^1.18.11",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "style-loader": "^0.23.1",
     "styled-components": "^4.1.3",
